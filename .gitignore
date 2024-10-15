@@ -1,4 +1,3 @@
-./include
-./external
-./build
-./lib
+include/
+build/
+lib/
