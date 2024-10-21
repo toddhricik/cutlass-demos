@@ -4,6 +4,9 @@ cmake_minimum_required(VERSION 3.29)
 project(cutlass-ampere-demos LANGUAGES CXX CUDA)
 # We are going to use a CUDA enabled Nvidia GPU
 enable_language(CUDA)
+# Print some helpful info
+message("CUDACXX = ${CUDA_INSTALL_PATH}/bin/nvcc")
+
 # CUTLASS requires c++ 17
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CUDA_STANDARD 17)
@@ -19,5 +22,11 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake")
 endif()
 # Append path to "cmake" directory in root of prjoject directory
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
+# Add the include directory. Create the include directory if needed
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake")
+	file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/include")
+endif()
+add_subdirectory(${CMAKE_SOURCE_DIR}/include include)
 # Add the src subdirectory which contains source files
 add_subdirectory(${CMAKE_SOURCE_DIR}/src src)
+
