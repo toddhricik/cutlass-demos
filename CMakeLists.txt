@@ -23,10 +23,10 @@ endif()
 # Append path to "cmake" directory in root of prjoject directory
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 # Add the include directory. Create the include directory if needed
-if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake")
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/include")
 	file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/include")
 endif()
-add_subdirectory(${CMAKE_SOURCE_DIR}/include include)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/include include)
 # Add the src subdirectory which contains source files
 add_subdirectory(${CMAKE_SOURCE_DIR}/src src)
 
