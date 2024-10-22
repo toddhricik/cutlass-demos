@@ -7,8 +7,10 @@ set(CMAKE_CXX_STANDARD 17 REQUIRED FATAL)
 include(GNUInstallDirs)
 
 add_executable(my_cute_demo my_cute_demo.cu)
-#set_target_properties(my_cute_demo PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-target_include_directories(my_cute_demo INTERFACE ${CMAKE_SOURCE_DIR}/include)
+#add_executable(basic_gemm basic_gemm.cu)
 
-target_link_directories(my_cute_demo INTERFACE cutlassTH)
+#set_target_properties(my_cute_demo PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+target_include_directories(my_cute_demo PRIVATE ${CMAKE_SOURCE_DIR}/include)
+#target_include_directories(basic_gemm INTERFACE ${CMAKE_SOURCE_DIR}/include)
+#target_link_directories(my_cute_demo INTERFACE cutlassTH)
 
